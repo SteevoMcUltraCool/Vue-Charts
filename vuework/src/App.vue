@@ -20,7 +20,7 @@ let changeyear = function(x){
 <template>
   <point @click="changeyear(-1)" :text="'Previous Year'" v-if="renderComponent"></point>
   <point @click="changeyear(1)" :text="'Next Year'" v-if="renderComponent"></point>
-  <h2  v-if="renderComponent">{{ year }}</h2>
+  <h2  v-if="renderComponent">Steve and Ness: {{ year }}</h2>
   <barGraph :year="year" v-if="renderComponent"></barGraph>
   <pieChart :year="year" v-if="renderComponent"></pieChart>
   <h3 v-if="year=='2018' || Number(year)<2007 || Number(year)>2019">No data for this year</h3>
