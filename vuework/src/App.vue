@@ -7,7 +7,7 @@ import {dataBIG} from './components/getAPI.vue'
 let year = 2019
 let renderComponent = ref(false)
 let data 
-async function() name{
+async function name() {
 	data = await dataBIG()
 	renderComponent.value = true
 }
