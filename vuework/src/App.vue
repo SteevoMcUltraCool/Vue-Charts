@@ -9,7 +9,7 @@ let renderComponent = ref(false)
 let data 
 async function name() {
 	data = await dataBIG()
-	data = await data.JSON()
+	data = await data.json()
 	renderComponent.value = true
 }
 name()
