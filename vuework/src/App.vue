@@ -9,6 +9,7 @@ let renderComponent = ref(false)
 let data 
 async function name() {
 	data = await dataBIG()
+	data = await data.JSON()
 	renderComponent.value = true
 }
 name()
