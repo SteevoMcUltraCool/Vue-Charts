@@ -8,9 +8,10 @@ let year = 2019
 let renderComponent = ref(false)
 let data 
 async function() name{
-	data = dataBIG()
+	data = await dataBIG()
 	renderComponent.value = true
 }
+name()
 const forceRerender = async () => {
   renderComponent.value = false;
 	await nextTick();
