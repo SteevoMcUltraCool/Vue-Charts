@@ -13,8 +13,6 @@ import {
 import { dataBIG } from "./getAPI.vue";
 let prop = defineProps(['year','data'])
 let data = prop.data.filter(s=> s.year== (prop.year||"2019")).map(s=> {s.race = String(s.materal_race_or_ethnicity ||s.race); delete s.materal_race_or_ethnicity; return s})
-
-name()
 </script>
 <template>
 <Chart
