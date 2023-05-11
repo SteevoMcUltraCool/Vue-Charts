@@ -11,11 +11,17 @@ import {
   Responsive,
 } from "vue3-charts";
 import { dataBIG } from "./getAPI.vue";
-let prop = defineProps(['year'])
-let data = dataBIG.filter(s=> s.year== (prop.year||"2019")).map(s=> {s.race = String(s.materal_race_or_ethnicity || s.race); delete s.materal_race_or_ethnicity; return s})
+let prop = defineProps(['year']), data, loaded = ref(false)
+async function name(){
+  let dataBIG2 = await dataBIG()
+  data = dataBIG2.filter(s=> s.year== (prop.year||"2019")).map(s=> {s.race = String(s.materal_race_or_ethnicity || s.race); delete s.materal_race_or_ethnicity; return s})
+  ref.value = true
+}
+name()
 </script>
 <template>
 <Chart
+v-if="loaded"
 :size="{ width:420, height: 420 }"
 :data="data"
 :margin="{
