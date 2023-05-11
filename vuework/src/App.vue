@@ -3,8 +3,14 @@ import point from './components/point.vue';
 import barGraph from './components/barGraph.vue'
 import pieChart from './components/pieChart.vue';
 import { nextTick,ref } from 'vue';
+import {dataBIG} from './components/getAPI.vue'
 let year = 2019
-let renderComponent = ref(true)
+let renderComponent = ref(false)
+let data 
+async function() name{
+	data = dataBIG()
+	renderComponent.value = true
+}
 const forceRerender = async () => {
   renderComponent.value = false;
 	await nextTick();
@@ -25,7 +31,7 @@ let changeyear = function(x){
   <p> <i>by Steve and Ness</i> </p>
   </div>
   <div class="cont">
-  	<barGraph :year="year" v-if="renderComponent"></barGraph>
+  	<barGraph :year="year" v-if="renderComponent" :data="data"></barGraph>
   	<pieChart :year="year" v-if="renderComponent"></pieChart>
   </div>
   <h3 v-if="year=='2018' || Number(year)<2007 || Number(year)>2019">No data for this year</h3>
